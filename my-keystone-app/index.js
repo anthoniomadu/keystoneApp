@@ -15,6 +15,7 @@ const keystone = new Keystone({
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
 });
 
+
 const admin = new AdminUIApp();
 
 // Access control functions
@@ -36,6 +37,7 @@ const userIsAdminOrOwner = auth => {
 };
 
 const access = { userIsAdmin, userOwnsItem, userIsAdminOrOwner };
+
 
 keystone.createList('User', {
   fields: {
@@ -82,7 +84,7 @@ module.exports = {
     new AdminUIApp({
       name: PROJECT_NAME,
       enableDefaultRoute: true,
-      // authStrategy,
+      authStrategy,
     }),
   ],
 };
