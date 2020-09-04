@@ -10,6 +10,8 @@ const PROJECT_NAME = 'my_keystone_app';
 const adapterConfig = { knexOptions: { connection: 'postgres://postgres:1234@localhost:5432/my_keystone_project' } };
 
 
+
+
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   onConnect: process.env.CREATE_TABLES !== 'true' && initialiseData,
@@ -17,6 +19,7 @@ const keystone = new Keystone({
 
 
 const admin = new AdminUIApp();
+// const admin = new AdminUIApp({ authStrategy });
 
 // Access control functions
 const userIsAdmin = ({ authentication: { item: user } }) => Boolean(user && user.isAdmin);
@@ -59,13 +62,13 @@ keystone.createList('User', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: access.userIsAdminOrOwner,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: access.userIsAdminOrOwner,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 const authStrategy = keystone.createAuthStrategy({
@@ -82,6 +85,7 @@ module.exports = {
   apps: [
     new GraphQLApp(),
     new AdminUIApp({
+      adminPath: '/admin',
       name: PROJECT_NAME,
       enableDefaultRoute: true,
       authStrategy,
