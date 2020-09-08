@@ -1647,7 +1647,7 @@
     object-hash "^2.0.3"
     terminal-link "^2.1.1"
 
-"@keystonejs/app-graphql@^6.1.1":
+"@keystonejs/app-graphql@^6.1.2":
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@keystonejs/app-graphql/-/app-graphql-6.1.2.tgz#ce7b9be2a0a69b6d306d285358fc467ec44c576b"
   integrity sha512-SIOqPlXH3Q6mncUncZjPD3lBvQ8I9XyEecR/uv7h07TLUKVBpVoicjpQg9WRbD6+ZnzuAxP9qWcJkv2/vgHDaw==

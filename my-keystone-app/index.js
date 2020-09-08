@@ -6,7 +6,7 @@ const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const initialiseData = require('./initial-data');
 
 const { KnexAdapter: Adapter } = require('@keystonejs/adapter-knex');
-const PROJECT_NAME = 'lu-app';
+const PROJECT_NAME = 'Linden Ustawi';
 const adapterConfig = { knexOptions: { connection: 'postgres://postgres:1234@localhost:5432/lu_app' } };
 
 
@@ -54,14 +54,14 @@ keystone.createList('User', {
       type: Password,
     },
   },
-  // List-level access controls
-  access: {
-    read: access.userIsAdminOrOwner,
-    update: access.userIsAdminOrOwner,
-    create: access.userIsAdmin,
-    delete: access.userIsAdmin,
-    auth: true,
-  },
+  // // List-level access controls
+  // access: {
+  //   read: access.userIsAdminOrOwner,
+  //   update: access.userIsAdminOrOwner,
+  //   create: access.userIsAdmin,
+  //   delete: access.userIsAdmin,
+  //   auth: true,
+  // },
 });
 
 const authStrategy = keystone.createAuthStrategy({
