@@ -54,14 +54,14 @@ keystone.createList('User', {
       type: Password,
     },
   },
-  // // List-level access controls
-  // access: {
-  //   read: access.userIsAdminOrOwner,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  // List-level access controls
+  access: {
+    read: access.userIsAdminOrOwner,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 const authStrategy = keystone.createAuthStrategy({
